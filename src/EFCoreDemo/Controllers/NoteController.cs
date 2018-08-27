@@ -25,20 +25,22 @@ namespace EFCoreDemo.Controllers
             return View(notes);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add(NoteViewModel viewModel)
+        //[HttpPost]
+        public async Task<IActionResult> Add(NoteModel model)
         {
-            if (!ModelState.IsValid)
+
+            if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            await _noteRepository.AddAsync(new Note
+            var note = new Note
             {
-                Title = viewModel.Title,
-                Content = viewModel.Content,
-                Create = DateTime.Now,
-                TypeId=3
-            });
+                Title = model.Title,
+                Content = model.Content,
+                Create = DateTime.Now
+            };
+            await _noteRepository.AddAsync(note);
+
             return RedirectToAction("Index");
         }
     }

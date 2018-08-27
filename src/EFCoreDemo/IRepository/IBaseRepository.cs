@@ -10,6 +10,5 @@ namespace EFCoreDemo.IRepository
         Task<List<T>> ListAsync();
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
-
     }
 }

@@ -9,7 +9,7 @@ namespace EFCoreDemo.Repository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private NoteContext _context;
+        private readonly NoteContext _context;
         public BaseRepository(NoteContext context)
         {
             _context = context;
@@ -37,5 +37,6 @@ namespace EFCoreDemo.Repository
             _context.Entry(entity).State = EntityState.Modified;
             await Save();
         }
+
     }
 }

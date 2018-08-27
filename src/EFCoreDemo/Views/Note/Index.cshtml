@@ -7,7 +7,7 @@
 @model List<Note>
 
 <div class="container-fluid">
-    <div class="row"><a asp-action="Add">添加Note</a></div>
+    <div class="row"><a asp-area="" asp-controller="Note" asp-action="Add">添加Note</a></div>
     @foreach(var item in Model)
     {
         <div class="row">

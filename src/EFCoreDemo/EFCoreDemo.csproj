@@ -17,4 +17,8 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Note\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Repository\IBaseRepository.cs" />
+    <Compile Remove="ViewModels\NoteViewModel.cs" />
+  </ItemGroup>
 </Project>
