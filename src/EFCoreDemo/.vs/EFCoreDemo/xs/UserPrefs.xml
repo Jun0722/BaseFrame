@@ -1,9 +1,18 @@
-﻿<Properties StartupConfiguration="{8F95D306-94BB-4113-9530-F4CCA14A9D85}|Default">
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupConfiguration="{8F95D306-94BB-4113-9530-F4CCA14A9D85}|Default" GitUserInfo="UsingMD">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/NoteController.cs">
+    <Files>
+      <File FileName="Controllers/NoteController.cs" Line="36" Column="34" />
+      <File FileName="Views/Note/Index.cshtml" Line="11" Column="1" />
+      <File FileName="ViewModels/NoteViewModel.cs" Line="13" Column="28" />
+      <File FileName="Views/Note/Add.cshtml" Line="10" Column="41" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.EFCoreDemo PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.EFCoreDemo PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/xuanwang/Desktop/EFCoreDemo/src/EFCoreDemo/Controllers/NoteController.cs" relfile="Controllers/NoteController.cs" line="34" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

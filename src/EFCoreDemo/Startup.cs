@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using EFCoreDemo.Data;
+using EFCoreDemo.IRepository;
+using EFCoreDemo.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,8 +35,13 @@ namespace EFCoreDemo
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            string DefaultSqlConnectionString = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                                                                          .AddJsonFile("appsettings.json")
+                                                                          .Build()["ConnectionStrings:Mysql"];
 
+            services.AddDbContextPool<NoteContext>(options => options.UseMySql(DefaultSqlConnectionString));
 
+            services.AddTransient<INoteRepository, NoteRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
