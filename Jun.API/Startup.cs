@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Jun.API
 {
@@ -30,6 +31,22 @@ namespace Jun.API
             #region DbContext
             NativeInjectorBootStrapper.RegisterServices(services);
             #endregion
+
+            #region  添加SwaggerUI
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Info
+                {
+                    Title = "API接口文档",
+                    Version = "v1",
+                    //Description = "RESTful API"
+                    //TermsOfService = "None",
+                    //Contact = new Contact { Name = "", Email = "", Url = "" }
+                });
+            });
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +58,15 @@ namespace Jun.API
             }
 
             app.UseMvc();
+            #region 使用SwaggerUI
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+            });
+
+            #endregion
         }
     }
 }
